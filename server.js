@@ -18,12 +18,12 @@ app.post('/sendmail/:toEmail', async (request, response) => {
     const html = request.body.html
 
     let transporter = nodemailer.createTransport({
-        host: "smtp.umbler.com",
+        host: process.env.EMAIL_SMTP,
         port: 587,
         secure: false, 
         auth: {
-          user: 'contato@thalesmorais.dev', 
-          pass: 'eft-BMV4kub9hjy7adf',
+          user: process.env.EMAIL_USER, 
+          pass: process.env.EMAIL_PASSWORD,
         },
       });
     
