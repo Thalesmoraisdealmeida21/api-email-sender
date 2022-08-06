@@ -2,15 +2,12 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const nodemailer = require("nodemailer");
-
-
+require('dotenv').config()
 
 app.use(cors())
 app.use(express.json())
 
 app.post('/sendmail/:toEmail', async (request, response) => {
-
-
     const subject = request.body.subject
     const toEmail = request.params.toEmail
     const from = request.body.from
@@ -20,7 +17,7 @@ app.post('/sendmail/:toEmail', async (request, response) => {
     let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_SMTP,
         port: 587,
-        secure: false, 
+        secure: false,
         auth: {
           user: process.env.EMAIL_USER, 
           pass: process.env.EMAIL_PASSWORD,
@@ -35,9 +32,7 @@ app.post('/sendmail/:toEmail', async (request, response) => {
         html: html, 
       });
     
-      response.json({"status": "ok", "message": "sended", "idMessage": info.response})
-
- 
+      response.json({"status": "ok", "message": "sended", "idMessage": info.response}) 
 })
 
 
