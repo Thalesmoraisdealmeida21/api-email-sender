@@ -28,9 +28,9 @@ app.post('/sendmail/:toEmail', async (request, resp) => {
               'Name': 'Thales Morais'
             }
           ],
-          'Subject': 'Your email flight plan!',
-          'Text-part': 'Dear passenger, welcome to Mailjet! May the delivery force be with you!',
-          'Html-part': '<h3>Dear passenger, welcome to Mailjet!</h3><br />May the delivery force be with you!'
+          'Subject': subject,
+          'Text-part': text,
+          'Html-part': html
         },
         {
           headers: {
