@@ -14,6 +14,8 @@ app.post('/sendmail/:toEmail', async (request, response) => {
     const text = request.body.text
     const html = request.body.html
 
+    console.log(EMAIL_SMTP)
+
     let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_SMTP,
         port: 587,
