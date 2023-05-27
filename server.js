@@ -16,7 +16,7 @@ app.post('/sendmail/:toEmail', async (request, response) => {
 
 
     let transporter = nodemailer.createTransport({
-        host: smtp-mail.outlook.com,
+        host: 'smtp-mail.outlook.com',
         port: 587,
         secure: false,
         auth: {
